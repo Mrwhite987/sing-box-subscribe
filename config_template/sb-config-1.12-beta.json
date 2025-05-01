@@ -29,7 +29,8 @@
       {
         "tag": "local",
         "type": "https",
-        "server": "119.29.29.29"
+        "server": "doh.pub",
+        "domain_resolver": "119.29.29.29"
       },
       {
         "tag": "fakeip",
@@ -46,6 +47,10 @@
       {
         "clash_mode": "global",
         "server": "google"
+      },
+      {
+        "domain_suffix": ["lwwgeo.top"], 
+        "server": "google"              
       },
       {
         "query_type": [
@@ -465,6 +470,10 @@
       {
         "ip_is_private": true,
         "outbound": "direct"
+      },
+      {
+        "domain_suffix": ["lwwgeo.top"], 
+        "outbound": "BacktoHome"         
       },
       {
         "rule_set": "geosite-openai",
