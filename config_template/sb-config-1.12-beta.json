@@ -30,7 +30,12 @@
         "tag": "local",
         "type": "https",
         "server": "doh.pub",
-        "domain_resolver": "119.29.29.29"
+        "domain_resolver": "china"
+      },
+      {
+        "tag": "china",
+        "type": "udp",
+        "server": "119.29.29.29"      
       },
       {
         "tag": "fakeip",
