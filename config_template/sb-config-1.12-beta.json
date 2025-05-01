@@ -8,7 +8,7 @@
       "external_controller": "127.0.0.1:9090",
       "external_ui": "ui",
       "secret": "",
-      "external_ui_download_url": "https://gh-proxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
+      "external_ui_download_url": "https://gh-proxy.com/https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip",
       "external_ui_download_detour": "direct",
       "default_mode": "rule"
     },
@@ -29,7 +29,7 @@
       {
         "tag": "local",
         "type": "https",
-        "server": "223.5.5.5"
+        "server": "119.29.29.29"
       },
       {
         "tag": "fakeip",
@@ -380,6 +380,16 @@
       ]
     },
     {
+      "tag":"BacktoHome",             
+      "type":"selector",        
+      "outbounds":[
+        "{all}"               
+      ],
+      "filter":[
+        {"action":"include", "keywords":["home"]}
+      ] 
+    },
+    {
       "tag":"auto",
       "type":"urltest",
       "outbounds":[
@@ -421,6 +431,10 @@
         ],
         "action": "hijack-dns"
       },
+      {
+        "ip_cidr": ["192.168.1.0/24"], 
+        "outbound": "BacktoHome"                    
+     },
       {
         "rule_set": "geosite-category-ads-all",
         "clash_mode": "rule",
