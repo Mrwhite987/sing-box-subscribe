@@ -19,7 +19,45 @@
     }
   },
   "dns": {
-    "servers": [
+    "servers": [      
+      {
+        "tag": "hosts", 
+        "type": "hosts",
+        "predefined": {
+          "aiapi.lwwgeo.top": "192.168.1.1",
+          "aria2.lwwgeo.top": "192.168.1.1",
+          "aria2core.lwwgeo.top": "192.168.1.1",
+          "audio.lwwgeo.top": "192.168.1.1",
+          "auth.lwwgeo.top": "192.168.1.1",
+          "bitwarden.lwwgeo.top": "192.168.1.1",
+          "book.lwwgeo.top": "192.168.1.1",
+          "clash.lwwgeo.top": "192.168.1.1",
+          "docker.lwwgeo.top": "192.168.1.1",
+          "emby.lwwgeo.top": "192.168.1.1",
+          "grafana.lwwgeo.top": "192.168.1.1",
+          "home.lwwgeo.top": "192.168.1.1",
+          "homer.lwwgeo.top": "192.168.1.1",
+          "immich.lwwgeo.top": "192.168.1.1",
+          "jellyfin.lwwgeo.top": "192.168.1.1",
+          "lobe.lwwgeo.top": "192.168.1.1",
+          "manga.lwwgeo.top": "192.168.1.1",
+          "minio.lwwgeo.top": "192.168.1.1",
+          "minio-ui.lwwgeo.top": "192.168.1.1",
+          "mp.lwwgeo.top": "192.168.1.1",
+          "nas.lwwgeo.top": "192.168.1.1",
+          "op.lwwgeo.top": "192.168.1.1",
+          "panel.lwwgeo.top": "192.168.1.1",
+          "photo.lwwgeo.top": "192.168.1.1",
+          "qbit.lwwgeo.top": "192.168.1.1",
+          "qd.lwwgeo.top": "192.168.1.1",
+          "sub.lwwgeo.top": "192.168.1.1",
+          "substore.lwwgeo.top": "192.168.1.1",
+          "tr.lwwgeo.top": "192.168.1.1",
+          "wd.lwwgeo.top": "192.168.1.1",
+          "wol.lwwgeo.top": "192.168.1.1",
+          "www.lwwgeo.top": "192.168.1.1"
+        }
+      },
       {
         "tag": "google",
         "type": "tls",
@@ -46,16 +84,16 @@
     ],
     "rules": [
       {
+        "ip_accept_any": true, 
+        "server": "hosts"      
+      },      
+      {
         "clash_mode": "direct",
         "server": "local"
       },
       {
         "clash_mode": "global",
         "server": "google"
-      },
-      {
-        "domain_suffix": ["lwwgeo.top"], 
-        "server": "google"              
       },
       {
         "query_type": [
@@ -444,7 +482,11 @@
       {
         "ip_cidr": ["192.168.1.0/24"], 
         "outbound": "BacktoHome"                    
-     },
+      },
+      {
+        "domain_suffix": ["lwwgeo.top"], 
+        "outbound": "BacktoHome"         
+      },      
       {
         "rule_set": "geosite-category-ads-all",
         "clash_mode": "rule",
@@ -475,10 +517,6 @@
       {
         "ip_is_private": true,
         "outbound": "direct"
-      },
-      {
-        "domain_suffix": ["lwwgeo.top"], 
-        "outbound": "BacktoHome"         
       },
       {
         "rule_set": "geosite-openai",
